@@ -41,5 +41,5 @@ components = {
   }
 }
 
-security_groups = ["sg-0dee954b08055e577"]
-zone_id         = "Z0021413JFIQEJP9ZO9Z"
+security_groups = ["sg-08aa5756a692da5db"]
+zone_id         = "Z018259425M5G2J8CG7IN"
