@@ -1,7 +1,7 @@
-default_vpc_id             = "vpc-0db24390e722e63df"
+default_vpc_id             = "vpc-047067a48e9c2f3ca"
 default_vpc_cidr           = "172.31.0.0/16"
-default_vpc_route_table_id = "rtb-00aceb4d7e8e01a27"
-zone_id                    = "Z018259425M5G2J8CG7IN"
+default_vpc_route_table_id = "rtb-00cfe6c63f528e39f"
+zone_id                    = "Z0377436X8MZDY70DYAE"
 env                        = "dev"
 ssh_ingress_cidr           = ["172.31.85.208/32"]
 monitoring_ingress_cidr    = ["172.31.91.26/32"]
@@ -105,6 +105,7 @@ apps = {
     lb_priority      = 1
     lb_type          = "public"
     parameters       = []
+    tags             = { Monitor_Nginx = "yes" }
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -115,6 +116,7 @@ apps = {
     lb_priority      = 2
     lb_type          = "private"
     parameters       = ["docdb"]
+    tags             = {}
   }
   user = {
     instance_type    = "t3.micro"
@@ -125,6 +127,7 @@ apps = {
     lb_priority      = 3
     lb_type          = "private"
     parameters       = ["docdb"]
+    tags             = {}
   }
   cart = {
     instance_type    = "t3.micro"
@@ -135,6 +138,7 @@ apps = {
     lb_priority      = 4
     lb_type          = "private"
     parameters       = []
+    tags             = {}
   }
   payment = {
     instance_type    = "t3.micro"
@@ -145,6 +149,7 @@ apps = {
     lb_priority      = 5
     lb_type          = "private"
     parameters       = ["rabbitmq"]
+    tags             = {}
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -155,5 +160,6 @@ apps = {
     lb_priority      = 6
     lb_type          = "private"
     parameters       = ["rds"]
+    tags             = {}
   }
 }
