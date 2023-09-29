@@ -25,7 +25,7 @@ module "alb" {
   sg_port         = each.value["sg_port"]
 }
 
-module "docdb" {
+/* module "docdb" {
   source = "git::https://github.com/vyshuvenu/tf-module-docdb.git"
   tags   = var.tags
   env    = var.env
@@ -64,8 +64,8 @@ module "rds" {
  instance_count          = each.value["instance_count"]
  instance_class          = each.value["instance_class"]
 }
-
-module "elasticache" {
+ */
+/* module "elasticache" {
  source = "git::https://github.com/vyshuvenu/tf-module-elasticache.git"
  tags   = var.tags
  env    = var.env
@@ -82,9 +82,9 @@ module "elasticache" {
  node_type        = each.value["node_type"]
  num_cache_nodes  = each.value["num_cache_nodes"]
  engine_version   = each.value["engine_version"]
-}
+} */
 
-module "rabbitmq" {
+/* module "rabbitmq" {
   source  = "git::https://github.com/vyshuvenu/tf-module-rabbitmq.git"
   tags    = var.tags
   env     = var.env
@@ -98,9 +98,9 @@ module "rabbitmq" {
   instance_type    = each.value["instance_type"]
   ssh_ingress_cidr = var.ssh_ingress_cidr
 }
-
+ */
 module "app" {
-  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
+  #depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source = "git::https://github.com/vyshuvenu/tf-module-app.git"
 
   tags                    = merge(var.tags, each.value["tags"])
@@ -108,7 +108,7 @@ module "app" {
   zone_id                 = var.zone_id
   ssh_ingress_cidr        = var.ssh_ingress_cidr
   default_vpc_id          = var.default_vpc_id
-
+  monitoring_ingress_cidr = var.monitoring_ingress_cidr
   for_each         = var.apps
   component        = each.key
   port             = each.value["port"]
