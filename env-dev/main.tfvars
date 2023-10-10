@@ -1,9 +1,9 @@
-default_vpc_id             = "vpc-047067a48e9c2f3ca"
+default_vpc_id             = "vpc-079b86298f336ec59"
 default_vpc_cidr           = "172.31.0.0/16"
-default_vpc_route_table_id = "rtb-00cfe6c63f528e39f"
-zone_id                    = "Z07105532VP083KKJ944F"
+default_vpc_route_table_id = "rtb-03782393a47b75849"
+zone_id                    = "Z007247513SMGBYLNOURO"
 env                        = "dev"
-ssh_ingress_cidr           = ["172.31.22.186/32"]
+ssh_ingress_cidr           = ["172.31.81.184/32"]
 monitoring_ingress_cidr    = ["172.31.24.172/32"]
 
 tags = {
